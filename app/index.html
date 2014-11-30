@@ -24,7 +24,9 @@
   <body ng-app="journal">
 
     <div class="hero-unit">
-      <h1>'Allo, 'Allo!</h1>
+
+      <span id="user"></span>
+      <div ng-view></div>
       {{4+4}}
 
 
@@ -37,11 +39,14 @@
     <script src="../bower_components/underscore/underscore.js"></script>
     <script src="../bower_components/angular/angular.min.js"></script>
     <script src="../bower_components/angular-route/angular-route.min.js"></script>
+    <script src="../bower_components/angular-cookies/angular-cookies.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
         <!-- build:js scripts/main.js -->
         <script src="scripts/main.js"></script>
+        <script src="scripts/users/user-controller.js"></script>
+        <script src="scripts/users/user-factory.js"></script>
         <!-- endbuild -->
 </body>
 </html>
