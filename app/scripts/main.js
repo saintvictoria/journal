@@ -23,7 +23,16 @@
     .when('/register', {
       templateUrl: 'register-user.html',
     //  controller: 'RegisterController'
-    controller: function (){}
+    controller: function (){
+
+    }
+    })
+    .when('/forgot', {
+      templateUrl: 'forgot-password.html',
+      //controller: 'ForgotPassword'
+      controller: function(){
+        
+      }
     })
     .when('/entry', {
       templateUrl: 'new-entry.html',

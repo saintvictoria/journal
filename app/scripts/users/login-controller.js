@@ -12,6 +12,10 @@
       UserFactory.login(user);
     };
 
+    $scope.forgot = function() {
+      $location.path('/forgot')
+    };
+
     $scope.logout = function () {
       UserFactory.logout();
     };
