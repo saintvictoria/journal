@@ -1,11 +1,11 @@
 (function () {
 
   angular.module('journal')
-  .controller('User', ['UserFactory','$scope',
-              function (UserFactory,  $scope) {
+  .controller('LoginController', ['UserFactory','$scope','$location',
+              function (UserFactory,  $scope, $location) {
 
-    $scope.register = function (user) {
-      UserFactory.register(user);
+    $scope.register = function () {
+      $location.path('/register')
     };
 
     $scope.login = function (user) {

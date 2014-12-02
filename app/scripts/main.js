@@ -15,13 +15,31 @@
   .config(['$routeProvider',
   function ($routeProvider){
 
-    $routeProvider.when('/', {
-      templateUrl: 'scripts/users/users-login.html',
-      controller: 'User'
-    }).otherwise({
-      templateUrl: 'scripts/users/users-login.html',
-      controller: 'User'
+    $routeProvider
+    .when('/', {
+      templateUrl: 'users-login.html',
+      controller: 'LoginController'
     })
+    .when('/register', {
+      templateUrl: 'register-user.html',
+    //  controller: 'RegisterController'
+    controller: function (){}
+    })
+    .when('/entry', {
+      templateUrl: 'new-entry.html',
+      //  controller: 'NewEntryController'
+      controller: function (){
+        this.entryDate = new Date();
+        this.heading = '';
+        this.body = '';
+        this.picture = null;
+      }
+    })
+    .otherwise({
+      templateUrl: '404.html',
+      controller: function (){}
+    })
+
 
   }]);
 
