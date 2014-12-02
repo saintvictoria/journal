@@ -1,68 +1,18 @@
-<meta charset="utf-8">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
-    <title>journal</title>
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-    <!-- build:css styles/vendor.css -->
-    <!-- bower:css -->
-    <link rel="stylesheet" href="../bower_components/normalize-css/normalize.css" />
-    <!-- endbower -->
-    <!-- endbuild -->
-
-    <!-- build:css styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
-    <!-- endbuild -->
-
-    <!-- build:js scripts/vendor/modernizr.js -->
-    <script src="../bower_components/modernizr/modernizr.js"></script>
-    <!-- endbuild -->
-  </head>
-  <body>
-<!--
- Date - automatic fixed date
- submit
- heading  - subject short(optional)
- prompt?
- entry
--->
-<div>
+<div ng-repeat="entry in entries">
   <div>Sunday, June 30, 2014</div>
   <br>
-  <div><h3>green shoes eat blue apples</h3></div>
+  <div><h3 >{{user.heading}}</h3></div>
   <div>What is your favourite colour?</div>
-  <div>I like spicey food and yellow cats!<br>
+  <div>{{user.body}}<br>
     <img src="images/elephant-311596_640.png" width="300" height="200">
     </div>
     <hr style="border: 1px dashed black;" />
-    <div>Monday, June 31, 2014</div>
-    <div>I added to my entry drew a picture and ate crawfish.</div>
+    <div>Date</div>
+    <div>{{user.appendBody}}.</div>
 
-    <button>append</button>
+    <button ng-click="append">append</button>
 
     <hr style="border: 2px solid black;"/>
 
 </div>
-
-<div>
-  <div>Sunday, June 30, 2014</div>
-  <br>
-  <div><h3>green shoes eat blue apples</h3></div>
-  <div>What is your favourite colour?</div>
-  <div>I like spicey food and yellow cats!<br>
-    <img src="images/elephant-311596_640.png" width="300" height="200">
-  </div>
-  <hr style="border: 1px dashed black;" />
-  <div>Monday, June 31, 2014</div>
-  <div>I added to my entry drew a picture and ate crawfish.</div>
-
-  <button>append</button>
-
-  <hr style="border: 2px solid black;"/>
-
-</div>
-
-
-
-  </body>
-</html>
