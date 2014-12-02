@@ -4,7 +4,7 @@
   .controller('User', ['UserFactory','$scope',
               function (UserFactory,  $scope) {
 
-    $scope.addUser = function (user) {
+    $scope.register = function (user) {
       UserFactory.register(user);
     };
 
@@ -15,7 +15,7 @@
     $scope.logout = function () {
       UserFactory.logout();
     };
-    
+
     UserFactory.checkUser();
 
   }
