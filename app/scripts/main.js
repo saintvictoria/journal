@@ -31,14 +31,25 @@
       templateUrl: 'forgot-password.html',
       //controller: 'ForgotPassword'
       controller: function(){
-        
+
       }
     })
-    .when('/entry', {
+    .when('/welcome', {
+      templateUrl: 'welcome-view.html',
+      // controller: 'WelcomeViewController'
+      controller: function($scope, $location){
+        $scope.newEntry = function(){
+          $location.path('/newEntry')
+        };
+        $scope.user = {'name':'Jim'}
+
+      }
+    })
+    .when('/newEntry', {
       templateUrl: 'new-entry.html',
       //  controller: 'NewEntryController'
       controller: function (){
-        this.entryDate = new Date();
+        //$scope.date = $filter('Date')( Date.now(), 'medium');
         this.heading = '';
         this.body = '';
         this.picture = null;

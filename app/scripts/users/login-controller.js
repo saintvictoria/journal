@@ -20,6 +20,16 @@
       UserFactory.logout();
     };
 
+    $scope.welcome = function () {
+      $location.path('/welcome')
+    };
+
+    $scope.newEntry = function () {
+      $location.path('/newEntry')
+    };
+
+
+
     UserFactory.checkUser();
 
   }
