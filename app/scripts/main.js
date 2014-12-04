@@ -1,4 +1,7 @@
 (function (){
+  Parse.initialize("IWbER00hd2pgcj7vTr9JltVyZkxOIFlVlXvJILkw",
+    "ZeSpqSXsigsmYIzsmIjLIKAxwThxUx4dQjmQ1uCr");
+
   angular.module ('journal',['ngRoute','ngCookies'])
   .constant('PARSE_HEADERS', {
     headers: {
@@ -8,7 +11,7 @@
     }
   })
 
-  .constant('PARSE_URI','https://api.parse.com/1/classes')
+  .constant('PARSE_URI','https://api.parse.com/1/')
 
 
 
@@ -23,7 +26,10 @@
     .when('/register', {
       templateUrl: 'register-user.html',
     //  controller: 'RegisterController'
-    controller: function (){
+    controller: function ($scope, $location){
+      $scope.register = function(){
+        $location.path('/welcome')
+      };
 
     }
     })

@@ -4,9 +4,10 @@
   ['PARSE_HEADERS','PARSE_URI','$http','$location','$cookieStore',
   function(PARSE_HEADERS,  PARSE_URI,  $http,  $location,  $cookieStore) {
 
-            var register = function(user) {
+            var register = function(User) {
                $http.post('https://api.parse.com/1/users', user, PARSE_HEADERS)
-               .success(function(data){
+               .success(function(){
+                 $location.path('/welcome');
 
                });
 

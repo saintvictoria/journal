@@ -2,14 +2,14 @@
  <div>
    <div>Name</div>
     <div>
-      <input type="text" placeholder="First Name"><br>
+      <input type="text" ng-model="user.name"placeholder="First Name"><br>
    </div>
    <div>If you would like to use a nickname enter it here:
      <input type="text" placeholder="Nick Name"></div>
-   <div>Email(Optional) <input type="email" placeholder="email@example.com"></div>
-   <div>Password <input type="password"></div>
-   <div>Password repeated <input type="password" name="password2"></div>
-   <div>When is your birthday: <input type="date"></div>
-   <button ng-click="go()">Go!</button>
+   <div>Email(Optional) <input type="email" ng-model="user.email"placeholder="email@example.com"></div>
+   <div>Password <input type="password" ng-model="user.password"></div>
+   <div>Password repeated <input type="password"  name="password2"></div>
+   <div>When is your birthday: <input type="date" ng-model="user.date"></div>
+   <button ng-click="go(user)">Go!</button>
 
  </div>
