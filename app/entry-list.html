@@ -9,9 +9,22 @@
     </div>
     <hr style="border: 1px dashed black;" />
     <div>Date</div>
-    <div>{{entry.appendBody}}.</div>
+    <div ng-repeat="append in entry.appends">
+      date:{{append.date}}<br>
+      body:{{append.body}}<br>
+      <hr style="border: 1px dashed black;" />
+    </div>
 
-    <button ng-click="append()">append</button>
+    <button ng-click="append(entry)">append</button>
+    <div ng-show="entry.extra">
+      <textarea ng-model="entry.body" cols="61" rows="6"
+      placeholder="Add extra thoughts."></textarea><br>
+       Or you can enter a picture:
+       <input type="file" ng-model="picture">
+       <button ng-click="submitAppend(entry)">submit</button>
+    </div>
+
+
 
     <hr style="border: 2px solid black;"/>
 

@@ -68,12 +68,31 @@
       templateUrl: 'entry-list.html',
       //controller: 'ForgotPassword'
       controller: function($scope, $location){
-        $scope.entries =[{
+        $scope.entries =[
+        {
           'heading': 'hello',
           'body': 'js is hard',
-          'appendBody':' extar wors'
-        }];
-        $scope.append = function(){
+          'appends':[
+          {
+            'date':'sunday',
+            'body':'yellow'
+
+          },
+          {
+            'date':'friday',
+            'body':'red'
+
+          }
+          ]
+        },
+        {
+          'heading': 'hello 1',
+          'body': 'js is hard',
+          'appends':[]
+        }
+        ];
+        $scope.append = function(entry){
+          entry.extra = true;
           console.log("green");
         };
 
