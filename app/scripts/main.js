@@ -95,6 +95,10 @@
           entry.extra = true;
           console.log("green");
         };
+        $scope.submitAppend = function(entry){
+
+          console.log("red",entry);
+        };
 
       }
     })

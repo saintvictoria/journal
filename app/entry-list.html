@@ -17,10 +17,10 @@
 
     <button ng-click="append(entry)">append</button>
     <div ng-show="entry.extra">
-      <textarea ng-model="entry.body" cols="61" rows="6"
+      <textarea ng-model="entry.appendBody" cols="61" rows="6"
       placeholder="Add extra thoughts."></textarea><br>
        Or you can enter a picture:
-       <input type="file" ng-model="picture">
+       <input type="file" ng-model="entry.appendPicture">
        <button ng-click="submitAppend(entry)">submit</button>
     </div>
 
