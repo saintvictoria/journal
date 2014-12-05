@@ -2,16 +2,16 @@
 <div ng-repeat="entry in entries">
   <div>Sunday, June 30, 2014</div>
   <br>
-  <div><h3 >{{user.heading}}</h3></div>
+  <div><h3 >{{entry.heading}}</h3></div>
   <div>What is your favourite colour?</div>
-  <div>{{user.body}}<br>
+  <div>{{entry.body}}<br>
     <img src="images/elephant-311596_640.png" width="300" height="200">
     </div>
     <hr style="border: 1px dashed black;" />
     <div>Date</div>
-    <div>{{user.appendBody}}.</div>
+    <div>{{entry.appendBody}}.</div>
 
-    <button ng-click="append">append</button>
+    <button ng-click="append()">append</button>
 
     <hr style="border: 2px solid black;"/>
 

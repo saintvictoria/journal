@@ -25,14 +25,14 @@
     })
     .when('/register', {
       templateUrl: 'register-user.html',
-    //  controller: 'RegisterController'
-    controller: function ($scope, $location){
-      $scope.register = function(){
-        $location.path('/welcome')
-      };
+    //  controller: 'RegisterController"
+      controller: function ($scope, $location) {
+        $scope.register = function(){
+          $location.path('/welcome')
+        };
 
-    }
-    })
+      }
+      })
     .when('/forgot', {
       templateUrl: 'forgot-password.html',
       //controller: 'ForgotPassword'
@@ -47,7 +47,10 @@
         $scope.newEntry = function(){
           $location.path('/newEntry')
         };
-        $scope.user = {'name':'Jim'}
+        $scope.user = {'name':'Jim'};
+        $scope.entriesView =function (){
+          $location.path('/entries')
+        };
 
       }
     })
@@ -59,6 +62,21 @@
         this.heading = '';
         this.body = '';
         this.picture = null;
+      }
+    })
+    .when('/entries', {
+      templateUrl: 'entry-list.html',
+      //controller: 'ForgotPassword'
+      controller: function($scope, $location){
+        $scope.entries =[{
+          'heading': 'hello',
+          'body': 'js is hard',
+          'appendBody':' extar wors'
+        }];
+        $scope.append = function(){
+          console.log("green");
+        };
+
       }
     })
     .otherwise({
