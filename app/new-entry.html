@@ -1,7 +1,7 @@
 
 <div>
   <div>Hi, {{user.name}}</div>
-  <div>Date: {{ date | date:'short' }}</div>
+  <div>Date: {{ date | date:'mediumDate' }}</div>
   <button ng-click="submit()">Submit</button><br>
   <div>Heading <input type="text" ng-model="heading" size="50" placeholder="This is the tl;dr..(optional)"></div>
   <div>{{question}}</div>
