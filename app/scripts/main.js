@@ -57,7 +57,7 @@
       controller: function ($scope, $location, QuestionFactory) {
         $scope.date = new Date();
         $scope.question = '';
-        QuestionFactory.questionByDate($scope.date)
+        QuestionFactory.questionByDate('today')
         .success(function(data) {
           $scope.question = data.results[0].question;
 

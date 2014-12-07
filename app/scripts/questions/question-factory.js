@@ -14,33 +14,18 @@
     };
 
     /**
-    @param {Date} qDate question based on the date using year, month and day.
+    @param {String} qDate question based on the string using year, month and day.
     */
     var dateQuestion = function(qDate) {
       var config = {
 
         params: {
-          where: {eligible_day: 'today'}
+          where: {eligible_day: qDate}
         },
         headers: PARSE_HEADERS.headers
       }
-      var promiseQuestion = $http.get(PARSE_URI+'/classes/Question', config);
-      /*
-      var x = promiseQuestion.then(function(response){
-        if (200 !== response.status) {
-          console.error("bad", response);
-          return null
-        }
-        var results = response.data.results;
-        if (results && 0 !== results.length) {
-          return results[0]
-        } else{
-          return null
-        }
-      });
-      return x
-*/
-      return promiseQuestion
+      return $http.get(PARSE_URI+'/classes/Question', config);
+
     };
 
     /**
