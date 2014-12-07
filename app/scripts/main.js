@@ -1,6 +1,4 @@
 (function (){
-  Parse.initialize("IWbER00hd2pgcj7vTr9JltVyZkxOIFlVlXvJILkw",
-    "ZeSpqSXsigsmYIzsmIjLIKAxwThxUx4dQjmQ1uCr");
 
   angular.module ('journal',['ngRoute','ngCookies'])
   .constant('PARSE_HEADERS', {
@@ -10,7 +8,6 @@
       'Content-Type': 'application/json'
     }
   })
-
   .constant('PARSE_URI','https://api.parse.com/1')
 
 
