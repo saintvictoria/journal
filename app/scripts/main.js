@@ -11,7 +11,7 @@
     }
   })
 
-  .constant('PARSE_URI','https://api.parse.com/1/')
+  .constant('PARSE_URI','https://api.parse.com/1')
 
 
 
@@ -57,17 +57,23 @@
     .when('/newEntry', {
       templateUrl: 'new-entry.html',
       //  controller: 'NewEntryController'
-      controller: function (){
-        //$scope.date = $filter('Date')( Date.now(), 'medium');
-        this.heading = '';
-        this.body = '';
-        this.picture = null;
+      controller: function ($scope, $location, QuestionFactory) {
+        $scope.date = new Date();
+        $scope.question = '';
+        QuestionFactory.questionByDate($scope.date)
+        .success(function(data) {
+          $scope.question = data.results[0].question;
+
+        });
+        $scope.heading = '';
+        $scope.body = '';
+        $scope.picture = null;
       }
     })
     .when('/entries', {
       templateUrl: 'entry-list.html',
       //controller: 'ForgotPassword'
-      controller: function($scope, $location){
+      controller: function($scope, $location) {
         $scope.entries =[
         {
           'heading': 'hello',
@@ -96,7 +102,6 @@
           console.log("green");
         };
         $scope.submitAppend = function(entry){
-
           console.log("red",entry);
         };
 
