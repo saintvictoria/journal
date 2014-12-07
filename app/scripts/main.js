@@ -110,16 +110,25 @@
     .otherwise({
       templateUrl: '404.html',
       controller: function (){}
-    })
-
-
-  }]);
+    });
 
 
 
-
-
-
+  }])
+  .directive('fileapi',
+               function () {
+    var linker = function (scope, element, attrs) {
+      element.bind('change', function (event) {
+        var files = event.target.files;
+        scope.image = files[0];
+        //element.val(null);  // clear input
+      });
+    };
+    return {
+      restrict: 'A',
+      link: linker
+    };
+  });
 
 
 }());
