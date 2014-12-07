@@ -53,19 +53,7 @@
     })
     .when('/newEntry', {
       templateUrl: 'new-entry.html',
-      //  controller: 'NewEntryController'
-      controller: function ($scope, $location, QuestionFactory) {
-        $scope.date = new Date();
-        $scope.question = '';
-        QuestionFactory.questionByDate('today')
-        .success(function(data) {
-          $scope.question = data.results[0].question;
-
-        });
-        $scope.heading = '';
-        $scope.body = '';
-        $scope.picture = null;
-      }
+      controller: 'EntryController'
     })
     .when('/entries', {
       templateUrl: 'entry-list.html',
@@ -112,8 +100,7 @@
 
 
   }])
-  .directive('fileapi',
-               function () {
+  .directive('fileapi', function () {
     var linker = function (scope, element, attrs) {
       element.bind('change', function (event) {
         var files = event.target.files;
