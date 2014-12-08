@@ -21,7 +21,8 @@ function(PARSE_HEADERS,PARSE_URI,$http, $upload) {
     promise.success(function(data) {
       console.log("saved ok", data);
       var oId = data.objectId;
-      if (object.Picture) {
+
+      if (picture) {
         var fileReader = new FileReader();
         fileReader.readAsArrayBuffer(picture);
         fileReader.onload = function(e) {

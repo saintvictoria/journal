@@ -1,4 +1,3 @@
-
 angular.module('journal')
 .controller('EntryController',
 ['$scope', '$location', 'EntryFactory','QuestionFactory',
@@ -15,7 +14,6 @@ function($scope, $location,  EntryFactory, QuestionFactory) {
   $scope.heading = '';
   $scope.body = '';
   $scope.submit = function() {
-    console.log($scope.image);
     var completeEntry = {
       'Date': {
         'iso': $scope.date,
@@ -54,14 +52,15 @@ function($scope, $location,  EntryFactory, QuestionFactory) {
   };
 
   $scope.submitAppend = function(entry){
-    console.log(entry);
+    console.log($scope);
+    console.log($scope.image);
     var completeAddendum = {
       'Date': {
         'iso': $scope.date,
         '__type': 'Date'
       },
       'Body': entry.appendBody,
-      'Picture': entry.appendPicture, // Probably?
+      'Picture': $scope.image,
       'Post': {
         '__type': 'Pointer',
         'className': 'Entry',
