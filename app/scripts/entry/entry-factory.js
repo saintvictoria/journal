@@ -13,20 +13,7 @@ function(PARSE_HEADERS,PARSE_URI,$http, $upload) {
     }
     /* this gives back the location header which contains the URL to the entry
     the object that is sent back gives a
-    {string} createdAt, and the {string} objectId.
-
-    https://api.parse.com/1/files/pic.jpg
-
-    "url": "http://files.parsetfss.com/bc9f32df-2957-4bb1-93c9-ec47d9870a05/tfss-db295fb2-8a8b-49f3-aad3-dd911142f64f-hello.txt",
-    "name": "db295fb2-8a8b-49f3-aad3-dd911142f64f-hello.txt"
-
-    Post:
-    "name": "Andrew",
-    "picture": {
-    "name": "...profile.png",
-    "__type": "File"
-
-
+    {string} createdAt, and the {string} objectI
     */
     var picture = entry.Picture;
     delete entry.Picture;
@@ -68,6 +55,15 @@ function(PARSE_HEADERS,PARSE_URI,$http, $upload) {
 
   */
   var entryList = function() {
+
+    var config = {
+      headers: PARSE_HEADERS.headers
+    }
+
+    var promise = $http.get(PARSE_URI+'/classes/Entry', config);
+    return promise;
+
+
 
   };
   /**

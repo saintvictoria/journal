@@ -57,40 +57,7 @@
     })
     .when('/entries', {
       templateUrl: 'entry-list.html',
-      //controller: 'ForgotPassword'
-      controller: function($scope, $location) {
-        $scope.entries =[
-        {
-          'heading': 'hello',
-          'body': 'js is hard',
-          'appends':[
-          {
-            'date':'sunday',
-            'body':'yellow'
-
-          },
-          {
-            'date':'friday',
-            'body':'red'
-
-          }
-          ]
-        },
-        {
-          'heading': 'hello 1',
-          'body': 'js is hard',
-          'appends':[]
-        }
-        ];
-        $scope.append = function(entry){
-          entry.extra = true;
-          console.log("green");
-        };
-        $scope.submitAppend = function(entry){
-          console.log("red",entry);
-        };
-
-      }
+      controller: 'EntryController'
     })
     .otherwise({
       templateUrl: '404.html',

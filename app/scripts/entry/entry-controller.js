@@ -28,9 +28,24 @@ function($scope, $location,  EntryFactory, QuestionFactory) {
     };
     EntryFactory.save(completeEntry);
   };
-}
+
+//entry list
+  $scope.entries = [];
+  EntryFactory.getAll().success(function(data) {
+    $scope.entries = data.results;
+    $scope.entries.forEach(function(entry) {
+      entry.appends = [];
+      entry.Date = Date.parse(entry.Date.iso);
+
+    });
+  });
+  $scope.append = function(entry){
+    entry.extra = true;
+    console.log("green");
+  };
+  $scope.submitAppend = function(entry){
+    console.log("red",entry);
+  };
 
 
-
-
-]);
+}]);
