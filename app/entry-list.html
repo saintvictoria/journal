@@ -1,4 +1,3 @@
-
 <div ng-repeat="entry in entries | orderBy:'-Date'">
   <div>{{ entry.Date | date:"mediumDate"}}</div>
   <br>
@@ -10,10 +9,11 @@
     </span>
   </div>
     <hr style="border: 1px dashed black;" />
-    <div>Date: {{ date | date:'mediumDate' }}</div>
-    <div ng-repeat="addendum in addendums">
-      date:{{addendum.Date}}<br>
-      body:{{addendum.Body}}<br>
+  
+    <div ng-repeat="addendum in addendums | filter:{Post: entry}">
+      {{addendum.Date | date:"mediumDate"}}<br>
+      {{addendum.Body}}<br>
+
       <hr style="border: 1px dashed black;" />
     </div>
 
@@ -22,7 +22,7 @@
       <textarea ng-model="entry.appendBody" cols="61" rows="6"
       placeholder="Add extra thoughts."></textarea><br>
        Or you can enter a picture:
-       <input type="file" ng-model="entry.appendPicture">
+       <input type="file" accept="image/*" fileapi="picture">
        <button ng-click="submitAppend(entry)">submit</button>
     </div>
 
