@@ -2,7 +2,7 @@
 angular.module('journal')
 .controller('EntryController',
 ['$scope', '$location', 'EntryFactory','QuestionFactory',
-function($scope, $location, EntryFactory, QuestionFactory) {
+function($scope, $location,  EntryFactory, QuestionFactory) {
 
   $scope.date = new Date();
   $scope.question = '';
@@ -14,7 +14,7 @@ function($scope, $location, EntryFactory, QuestionFactory) {
 
   $scope.heading = '';
   $scope.body = '';
-  $scope.picture = null;
+  $scope.image = null;
   $scope.submit = function() {
     var completeEntry = {
       'Date': {
@@ -23,8 +23,8 @@ function($scope, $location, EntryFactory, QuestionFactory) {
       },
       'Heading': $scope.heading,
       'QuestionText': $scope.question,
-      'Body': $scope.body
-      //'Picture': $scope.picture
+      'Body': $scope.body,
+      'Picture': $scope.image
     };
     EntryFactory.save(completeEntry);
   };
