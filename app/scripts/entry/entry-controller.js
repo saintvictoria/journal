@@ -14,8 +14,8 @@ function($scope, $location,  EntryFactory, QuestionFactory) {
 
   $scope.heading = '';
   $scope.body = '';
-  $scope.image = null;
   $scope.submit = function() {
+    console.log($scope.image);
     var completeEntry = {
       'Date': {
         'iso': $scope.date,
@@ -26,7 +26,7 @@ function($scope, $location,  EntryFactory, QuestionFactory) {
       'Body': $scope.body,
       'Picture': $scope.image
     };
-    EntryFactory.save(completeEntry);
+    EntryFactory.save(completeEntry, 'Entry');
   };
 
 //entry list
@@ -36,16 +36,29 @@ function($scope, $location,  EntryFactory, QuestionFactory) {
     $scope.entries.forEach(function(entry) {
       entry.appends = [];
       entry.Date = Date.parse(entry.Date.iso);
-      //query.ascending("createdAt");
-
     });
   });
   $scope.append = function(entry){
     entry.extra = true;
     console.log("green");
   };
+
   $scope.submitAppend = function(entry){
-    console.log("red",entry);
+    console.log(entry);
+    var completeAddendum = {
+      'Date': {
+        'iso': $scope.date,
+        '__type': 'Date'
+      },
+      'Body': entry.appendBody,
+      'Picture': entry.appendPicture, // Probably?
+      'Post': {
+        '__type': 'Pointer',
+        'className': 'Entry',
+        'objectId': entry.objectId
+      }
+    };
+    EntryFactory.save(completeAddendum, 'Addendum');
   };
 
 

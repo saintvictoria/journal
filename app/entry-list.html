@@ -10,7 +10,8 @@
     </span>
   </div>
     <hr style="border: 1px dashed black;" />
-    <div>Date</div>
+    <div>Date: {{ date | date:'mediumDate' }}</div>
+    <!-- TODO: This ng-repeat block will need to be rewritten. -->
     <div ng-repeat="append in entry.appends">
       date:{{append.Date}}<br>
       body:{{append.Body}}<br>
