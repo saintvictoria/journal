@@ -1,8 +1,8 @@
 (function (){
   angular.module('journal')
   .factory('UserFactory',
-  ['PARSE_HEADERS','PARSE_URI','$http','$location','$cookieStore',
-  function(PARSE_HEADERS,  PARSE_URI,  $http,  $location,  $cookieStore) {
+  ['PARSE_HEADERS','PARSE_URI','$http','$location',
+  function(PARSE_HEADERS,  PARSE_URI,  $http,  $location ) {
 
             var register = function(User) {
                $http.post('https://api.parse.com/1/users', user, PARSE_HEADERS)
@@ -25,12 +25,12 @@
             };
 
             var logout =function(user) {
-              $cookiestore.remove('currentUser');
+              //$cookiestore.remove('currentUser');
               return checkUser();
             };
 
             var checkUser = function(user) {
-              var user = $cookieStore.get('currentUser');
+              //var user = $cookieStore.get('currentUser');
               if (user) {
                 //$location.path('/list');
                 $('#user').html('Hello '+user.name);

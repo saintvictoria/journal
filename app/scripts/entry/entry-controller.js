@@ -36,6 +36,7 @@ function($scope, $location,  EntryFactory, QuestionFactory) {
     $scope.entries.forEach(function(entry) {
       entry.appends = [];
       entry.Date = Date.parse(entry.Date.iso);
+      //query.ascending("createdAt");
 
     });
   });

@@ -59,6 +59,7 @@
       templateUrl: 'entry-list.html',
       controller: 'EntryController'
     })
+    
     .otherwise({
       templateUrl: '404.html',
       controller: function (){}

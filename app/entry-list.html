@@ -1,5 +1,5 @@
 
-<div ng-repeat="entry in entries">
+<div ng-repeat="entry in entries | orderBy:'-Date'">
   <div>{{ entry.Date | date:"mediumDate"}}</div>
   <br>
   <div><h3 >{{entry.Heading}}</h3></div>
