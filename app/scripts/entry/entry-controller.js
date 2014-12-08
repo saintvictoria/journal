@@ -38,6 +38,16 @@ function($scope, $location,  EntryFactory, QuestionFactory) {
       entry.Date = Date.parse(entry.Date.iso);
     });
   });
+
+  // get the addendums too!
+  $scope.addendums = [];
+  EntryFactory.getAddendums().success(function(data) {
+    $scope.addendums = data.results;
+    $scope.addendums.forEach(function(addendum) {
+      addendum.Date = Date.parse(addendum.Date.iso);
+    });
+  });
+
   $scope.append = function(entry){
     entry.extra = true;
     console.log("green");

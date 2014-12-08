@@ -56,6 +56,14 @@ function(PARSE_HEADERS,PARSE_URI,$http, $upload) {
   /**
 
   */
+
+  /**
+  @param {Append} append
+  */
+  var append = function(append) {
+
+  };
+
   var entryList = function() {
 
     var config = {
@@ -68,19 +76,23 @@ function(PARSE_HEADERS,PARSE_URI,$http, $upload) {
 
 
   };
-  /**
-  @param {Append} append
-  */
-  var append = function(append) {
+
+  var addendumList = function () {
+
+    var config = {
+      headers: PARSE_HEADERS.headers
+    }
+
+    var promise = $http.get(PARSE_URI+'/classes/Addendum', config);
+    return promise;
 
   };
-
 
    return {
      save: save,
      getAll: entryList,
-     append: append
-
+     append: append,
+     getAddendums: addendumList
 
    }
 
