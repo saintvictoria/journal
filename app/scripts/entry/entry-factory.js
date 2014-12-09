@@ -39,7 +39,6 @@ function(PARSE_HEADERS,PARSE_URI,$http, $upload) {
         };
         var uploadPromise = $upload.http(uploadConfig);
         uploadPromise.success(function(data) {
-          console.log("upload ok", data);
           var fileData = {
             'Picture': {
               '__type': "File",

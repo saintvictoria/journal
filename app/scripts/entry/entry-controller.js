@@ -42,13 +42,15 @@ function($scope, $location,  EntryFactory, QuestionFactory) {
 
   // get the addendums too!
   $scope.addendums = [];
+  var fetchAddendums = function() {
   EntryFactory.getAddendums().success(function(data) {
     $scope.addendums = data.results;
     $scope.addendums.forEach(function(addendum) {
       addendum.Date = Date.parse(addendum.Date.iso);
     });
   });
-
+  };
+  fetchAddendums();
   $scope.append = function(entry){
     entry.extra = true;
   };
@@ -68,7 +70,10 @@ function($scope, $location,  EntryFactory, QuestionFactory) {
       }
     };
     EntryFactory.save(completeAddendum, 'Addendum', function() {
-      $location.path('/entries')
+      entry.extra = false;
+      entry.appendBody = '';
+      entry.picture = null;
+      fetchAddendums();
     });
   };
 
