@@ -1,7 +1,19 @@
 angular.module('journal')
 .controller('EntryController',
-['$scope', '$location', 'EntryFactory','QuestionFactory',
-function($scope, $location,  EntryFactory, QuestionFactory) {
+['$scope', '$location', 'EntryFactory','QuestionFactory', '$cookieStore',
+function($scope, $location,  EntryFactory, QuestionFactory, $cookieStore ){
+
+
+//probaly need a welcome controller
+//for next two functions
+  $scope.user = $cookieStore.get('currentUser');
+  $scope.newEntry = function(){
+    $location.path('/newEntry')
+  };
+  $scope.entriesView =function (){
+    $location.path('/entries')
+  };
+
 
   $scope.date = new Date();
   $scope.question = '';

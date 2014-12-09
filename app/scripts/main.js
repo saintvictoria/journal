@@ -1,6 +1,6 @@
 (function (){
 
-  angular.module ('journal',['ngRoute','angularFileUpload'])
+  angular.module ('journal',['ngRoute','angularFileUpload', 'ngCookies'])
   .constant('PARSE_HEADERS', {
     headers: {
       'X-Parse-Application-Id':'IWbER00hd2pgcj7vTr9JltVyZkxOIFlVlXvJILkw',
@@ -22,13 +22,7 @@
     })
     .when('/register', {
       templateUrl: 'register-user.html',
-    //  controller: 'RegisterController"
-      controller: function ($scope, $location) {
-        $scope.register = function(){
-          $location.path('/welcome')
-        };
-
-      }
+      controller: 'LoginController'
       })
     .when('/forgot', {
       templateUrl: 'forgot-password.html',
@@ -40,16 +34,7 @@
     .when('/welcome', {
       templateUrl: 'welcome-view.html',
       // controller: 'WelcomeViewController'
-      controller: function($scope, $location){
-        $scope.newEntry = function(){
-          $location.path('/newEntry')
-        };
-        $scope.user = {'name':'Jim'};
-        $scope.entriesView =function (){
-          $location.path('/entries')
-        };
-
-      }
+      controller: 'EntryController'
     })
     .when('/newEntry', {
       templateUrl: 'new-entry.html',

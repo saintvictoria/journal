@@ -1,8 +1,13 @@
 (function () {
 
   angular.module('journal')
-  .controller('LoginController', ['UserFactory','$scope','$location',
-              function (UserFactory,  $scope, $location) {
+  .controller('LoginController', ['UserFactory','$scope','$location', '$cookieStore',
+              function (UserFactory,  $scope, $location, $cookieStore) {
+
+    $scope.submitUser = function (user) {
+      console.log('hey we got a thing' + user);
+      UserFactory.submitUser(user);
+    };
 
     $scope.register = function () {
       $location.path('/register')
@@ -30,7 +35,7 @@
 
 
 
-    UserFactory.checkUser();
+    //UserFactory.checkUser();
 
   }
   ]);
