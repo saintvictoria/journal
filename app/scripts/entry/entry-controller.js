@@ -22,9 +22,12 @@ function($scope, $location,  EntryFactory, QuestionFactory) {
       'Heading': $scope.heading,
       'QuestionText': $scope.question,
       'Body': $scope.body,
-      'Picture': $scope.image
+      'Picture': $scope.picture
     };
-    EntryFactory.save(completeEntry, 'Entry');
+    EntryFactory.save(completeEntry, 'Entry', function() {
+      $location.path('/entries')
+
+    });
   };
 
 //entry list
@@ -48,26 +51,25 @@ function($scope, $location,  EntryFactory, QuestionFactory) {
 
   $scope.append = function(entry){
     entry.extra = true;
-    console.log("green");
   };
 
   $scope.submitAppend = function(entry){
-    console.log($scope);
-    console.log($scope.image);
     var completeAddendum = {
       'Date': {
         'iso': $scope.date,
         '__type': 'Date'
       },
       'Body': entry.appendBody,
-      'Picture': $scope.image,
+      'Picture': entry.picture,
       'Post': {
         '__type': 'Pointer',
         'className': 'Entry',
         'objectId': entry.objectId
       }
     };
-    EntryFactory.save(completeAddendum, 'Addendum');
+    EntryFactory.save(completeAddendum, 'Addendum', function() {
+      $location.path('/entries')
+    });
   };
 
 

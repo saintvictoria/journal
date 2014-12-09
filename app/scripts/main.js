@@ -68,11 +68,13 @@
 
 
   }])
-  .directive('fileapi', function () {
+  .directive('fileapi', ['$parse',function ($parse) {
     var linker = function (scope, element, attrs) {
       element.bind('change', function (event) {
+        var destination = attrs['fileapi'];
+        var setter = $parse(destination).assign;
         var files = event.target.files;
-        scope.image = files[0];
+        setter(scope, files[0]);
         //element.val(null);  // clear input
       });
     };
@@ -80,7 +82,7 @@
       restrict: 'A',
       link: linker
     };
-  });
+  }]);
 
 
 }());

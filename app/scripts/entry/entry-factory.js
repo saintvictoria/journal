@@ -6,7 +6,7 @@ function(PARSE_HEADERS,PARSE_URI,$http, $upload) {
   /**
   @param {Object} An Entry or Addendum.
   */
-  var save = function(object, classname) {
+  var save = function(object, classname, callback) {
     var config = {
 
       headers: PARSE_HEADERS.headers
@@ -19,40 +19,43 @@ function(PARSE_HEADERS,PARSE_URI,$http, $upload) {
     delete object.Picture;
     var promise = $http.post(PARSE_URI+'/classes/'+classname, object, config);
     promise.success(function(data) {
-      console.log("saved ok", data);
       var oId = data.objectId;
 
-      if (picture) {
-        var fileReader = new FileReader();
-        fileReader.readAsArrayBuffer(picture);
-        fileReader.onload = function(e) {
-          var headers = angular.copy(PARSE_HEADERS.headers);
-          headers['Content-Type'] =  picture.type;
-          var uploadConfig = {
-            'url': PARSE_URI + '/files/' + picture.name,
-            'data': e.target.result,
-            'headers': headers
-          };
-          var uploadPromise = $upload.http(uploadConfig);
-          uploadPromise.success(function(data) {
-            console.log("upload ok", data);
-            var fileData = {
-              'Picture': {
-                '__type': "File",
-                'name': data.name
-              }
-            };
-            var url = PARSE_URI+'/classes/' + classname + '/' + oId;
-            var attachPromise =$http.put(url, fileData, config);
-            attachPromise.success(function(data) {
-              console.log('woohoo', data);
-            });
-
-          });
+      if (!picture) {
+        if (callback) {
+          callback(data.objectId);
+        }
+        return
       }
-    }
+      var fileReader = new FileReader();
+      fileReader.readAsArrayBuffer(picture);
+      fileReader.onload = function(e) {
+        var headers = angular.copy(PARSE_HEADERS.headers);
+        headers['Content-Type'] =  picture.type;
+        var uploadConfig = {
+          'url': PARSE_URI + '/files/' + picture.name,
+          'data': e.target.result,
+          'headers': headers
+        };
+        var uploadPromise = $upload.http(uploadConfig);
+        uploadPromise.success(function(data) {
+          console.log("upload ok", data);
+          var fileData = {
+            'Picture': {
+              '__type': "File",
+              'name': data.name
+            }
+          };
+          var url = PARSE_URI+'/classes/' + classname + '/' + oId;
+          var attachPromise =$http.put(url, fileData, config);
+          attachPromise.success(function(data) {
+            if (callback) {
+              callback(data.objectId);
+            }
+          });
+        });
+      }
     });
-
   };
   /**
 

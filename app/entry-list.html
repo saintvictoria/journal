@@ -9,10 +9,14 @@
     </span>
   </div>
     <hr style="border: 1px dashed black;" />
-  
-    <div ng-repeat="addendum in addendums | filter:{Post: entry}">
+
+    <div style="margin-left: 20px"
+    ng-repeat="addendum in addendums | filter:{Post: entry}">
       {{addendum.Date | date:"mediumDate"}}<br>
       {{addendum.Body}}<br>
+      <span ng-show="addendum.Picture.url">
+        <img ng-src="{{addendum.Picture.url}}" width="300" height="200">
+      </span>
 
       <hr style="border: 1px dashed black;" />
     </div>
@@ -22,7 +26,7 @@
       <textarea ng-model="entry.appendBody" cols="61" rows="6"
       placeholder="Add extra thoughts."></textarea><br>
        Or you can enter a picture:
-       <input type="file" accept="image/*" fileapi="picture">
+       <input type="file" accept="image/*" fileapi="entry.picture">
        <button ng-click="submitAppend(entry)">submit</button>
     </div>
 
