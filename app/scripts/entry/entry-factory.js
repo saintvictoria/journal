@@ -4,13 +4,17 @@ angular.module('journal')
 function(PARSE_HEADERS,PARSE_URI,$http, $upload) {
 
   /**
-  @param {Object} An Entry or Addendum.
+  @param {Object} object An Entry or Addendum.
+  @param {String} classname the Parse class to save
+  @param {?function(string)} callback given the objectId after successful save
   */
   var save = function(object, classname, callback) {
+    /* globals FileReader */
+    "use strict";
     var config = {
 
       headers: PARSE_HEADERS.headers
-    }
+    };
     /* this gives back the location header which contains the URL to the entry
     the object that is sent back gives a
     {string} createdAt, and the {string} objectI
@@ -25,7 +29,7 @@ function(PARSE_HEADERS,PARSE_URI,$http, $upload) {
         if (callback) {
           callback(data.objectId);
         }
-        return
+        return;
       }
       var fileReader = new FileReader();
       fileReader.readAsArrayBuffer(picture);
@@ -54,7 +58,7 @@ function(PARSE_HEADERS,PARSE_URI,$http, $upload) {
             }
           });
         });
-      }
+      };
     });
   };
   /**
@@ -62,9 +66,8 @@ function(PARSE_HEADERS,PARSE_URI,$http, $upload) {
   */
 
   /**
-  @param {Append} append
   */
-  var append = function(append) {
+  var append = function() {
 
   };
 
@@ -72,24 +75,22 @@ function(PARSE_HEADERS,PARSE_URI,$http, $upload) {
 
     var config = {
       headers: PARSE_HEADERS.headers
-    }
+    };
 
+    //noinspection UnnecessaryLocalVariableJS
     var promise = $http.get(PARSE_URI+'/classes/Entry', config);
     return promise;
-
-
-
   };
 
   var addendumList = function () {
 
     var config = {
       headers: PARSE_HEADERS.headers
-    }
+    };
 
+    //noinspection UnnecessaryLocalVariableJS
     var promise = $http.get(PARSE_URI+'/classes/Addendum', config);
     return promise;
-
   };
 
    return {
@@ -97,7 +98,6 @@ function(PARSE_HEADERS,PARSE_URI,$http, $upload) {
      getAll: entryList,
      append: append,
      getAddendums: addendumList
-
-   }
+   };
 
  }]);

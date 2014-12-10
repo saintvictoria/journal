@@ -32,7 +32,7 @@ function($scope, $location,  EntryFactory, QuestionFactory, $cookieStore,  $sce)
   $scope.do_over = function() {
     ranQuestion();
   };
-  
+
   $scope.submit = function() {
     var completeEntry = {
       'Date': {

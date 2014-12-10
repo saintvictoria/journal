@@ -55,13 +55,13 @@ angular.module ('journal',
   }])
   .directive('fileapi', ['$parse',function ($parse) {
     var linker = function (scope, element, attrs) {
-      var destination = attrs['fileapi'];
+      var destination = attrs.fileapi;
       element.bind('change', function (event) {
         var setter = $parse(destination).assign;
         var files = event.target.files;
         setter(scope, files[0]);
       });
-      scope.$watch(destination, function(newval, oldval) {
+      scope.$watch(destination, function(newval) {
         if (!newval) {
           element.val(null);
         }
