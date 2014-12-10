@@ -3,13 +3,13 @@
 * password protected
 * only readable by person writing it
 * asks a random question each time opened
-* will ask a specific question(randomly decided) about certain dates - birthday, christmas, summer, winter etc
 * entries are appendable, but not deletable
 * can scroll through entries
 * can add pictures as attachments
-* drafts are saved
 * synced across devices
-* formatting - fonts, bold and italic and colours
+
+
+
 
 
 
@@ -23,3 +23,9 @@ Entries can be sorted from newest to oldest and vice versa.
 When reopening app, it will bring you to last draft, you can either continue it, save it (as draft)and start new entry or post it.
 Younger children get bigger font -
 If you add a picture you do not need text to save entry
+
+# Backlog
+
+* will ask a specific question(randomly decided) about certain dates - birthday, christmas, summer, winter etc
+* drafts are saved
+* formatting - fonts, bold and italic and colours
