@@ -73,7 +73,7 @@ function($scope, $location,  EntryFactory, QuestionFactory, $cookieStore,  $sce)
   };
   fetchAddendums();
   $scope.append = function(entry){
-    entry.extra = true;
+    entry.extra = !entry.extra;
   };
   $scope.addendumsForEntry = function (entry) {
     /* global _ */
