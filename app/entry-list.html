@@ -11,7 +11,7 @@
     <hr style="border: 1px dashed black;" />
 
     <div style="margin-left: 20px"
-    ng-repeat="addendum in addendums | filter:{Post: entry}">
+    ng-repeat="addendum in addendumsForEntry(entry)">
       {{addendum.Date | date:"mediumDate"}}<br>
       <span ng-bind-html="addendum.Body"></span><br>
       <span ng-show="addendum.Picture.url">

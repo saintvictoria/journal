@@ -75,6 +75,10 @@ function($scope, $location,  EntryFactory, QuestionFactory, $cookieStore,  $sce)
   $scope.append = function(entry){
     entry.extra = true;
   };
+  $scope.addendumsForEntry = function (entry) {
+    /* global _ */
+    return _.filter($scope.addendums, function (it) { return it.Post.objectId === entry.objectId; });
+  };
 
   $scope.submitAppend = function(entry){
     var completeAddendum = {
