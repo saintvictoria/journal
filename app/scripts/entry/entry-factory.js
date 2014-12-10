@@ -32,8 +32,9 @@ function(PARSE_HEADERS,PARSE_URI,$http, $upload) {
       fileReader.onload = function(e) {
         var headers = angular.copy(PARSE_HEADERS.headers);
         headers['Content-Type'] =  picture.type;
+        var safeName = picture.name.replace(/[^A-Za-z_0-9\.]/g, '');
         var uploadConfig = {
-          'url': PARSE_URI + '/files/' + picture.name,
+          'url': PARSE_URI + '/files/' + safeName,
           'data': e.target.result,
           'headers': headers
         };
