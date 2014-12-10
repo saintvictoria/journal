@@ -1,0 +1,15 @@
+{ "curly": true
+, "eqeqeq": true
+, "eqnull": true
+, "forin": true
+, "freeze": true
+, "immed": true
+, "latedef": true
+, "newcap": true
+, "noarg": true
+, "nonbsp": true
+, "nonew": true
+, "predef": ["angular", "console"]
+, "undef": true
+, "unused": true
+}

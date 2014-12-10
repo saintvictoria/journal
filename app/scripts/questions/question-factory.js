@@ -5,9 +5,15 @@
   function(PARSE_HEADERS,PARSE_URI,$http) {
 
     /**
-    @param {Number} qId
+
     */
-    var question = function(qId) {
+    var randomQuestion = function() {
+      var config = {
+        
+        headers: PARSE_HEADERS.headers
+      };
+      return $http.get(PARSE_URI+'/classes/Question', config);
+
 
 
 
@@ -47,7 +53,7 @@
 
 
     return {
-      questionById: question,
+      questionRandom: randomQuestion,
       questionByDate: dateQuestion,
       questionByAge: ageQuestion
     }
