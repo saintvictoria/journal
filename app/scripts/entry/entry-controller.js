@@ -17,14 +17,22 @@ function($scope, $location,  EntryFactory, QuestionFactory, $cookieStore ){
 
   $scope.date = new Date();
   $scope.question = '';
-  QuestionFactory.questionByDate('today')
-  .success(function(data) {
-    $scope.question = data.results[0].question;
-
-  });
-
   $scope.heading = '';
   $scope.body = '';
+  var ranQuestion = function() {
+    QuestionFactory.questionRandom()
+    .success(function(data) {
+      var qNumber =  Math.floor(Math.random() * (data.results.length));
+      $scope.question = data.results[qNumber].question;
+
+    });
+  };
+  ranQuestion();
+
+  $scope.do_over = function() {
+    ranQuestion();
+  };
+  
   $scope.submit = function() {
     var completeEntry = {
       'Date': {

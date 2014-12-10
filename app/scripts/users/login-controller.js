@@ -5,7 +5,7 @@
               function (UserFactory,  $scope, $location, $cookieStore) {
 
     $scope.submitUser = function (user) {
-      console.log('hey we got a thing' + user);
+      console.log('hey we got a thing',  user);
       UserFactory.submitUser(user);
     };
 
