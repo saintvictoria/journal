@@ -23,7 +23,7 @@
 
     <button ng-click="append(entry)">append</button>
     <div ng-show="entry.extra">
-      <quill></quill><br>
+      <quill quill-model="entry.appendBody"></quill><br>
        Or you can enter a picture:
        <input type="file" accept="image/*" fileapi="entry.picture">
        <button ng-click="submitAppend(entry)">submit</button>

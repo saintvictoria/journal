@@ -73,40 +73,41 @@
       link: linker
     };
   }])
-  .directive('quill2', ['$timeout',function ($timeout) {
-    var linker = function (scope, element, attrs) {
-      var quillId = 'quill'+Math.floor(Math.random()*1000);
-      //var formatGroup = ['bold','italic', 'underline'];
-
-      var editorDiv = angular.element('<div>' +
-      //'<div id="' + quillId + '-t"></div>' +
-      '<div id="' + quillId + '-e"></div>' +
-      '</div>');
-      element.append(editorDiv);
-      $timeout(function() {
-
-      var quill = new Quill(editorDiv[0] );//'#' + quillId + '-e');
+  .directive('quill', ['$parse', function ($parse) {
+    var linker = function(scope, element, attrs) {
+      /* global Quill */
+      var dest, editorDiv, existing, getter, setter;
+      dest = attrs.quillModel;
+      editorDiv = element.find('.the-editor');
+      if (! editorDiv) {
+        throw 'Unable to find .the-editor';
+      }
+      if (dest) {
+        getter = $parse(dest);
+        setter = getter.assign;
+        existing = getter(scope);
+      }
+      if (existing) {
+        editorDiv.first().innerHTML = existing;
+      }
+      var quill = new Quill(editorDiv[0], {'theme': 'snow'});
+      if (setter) {
+        quill.on('text-change', function () {
+          var htm = quill.getHTML();
+          setter(scope, htm);
+        });
+      }
       var tb = element.parent().find('.ql-toolbar');
-      tb.attr('id',quillId + '-t');
-      quill.addModule('toolbar', {
-         //container: '#' + quillId +'-t'
-         container: tb[0]
-       });
-     },500);
-
+      if (tb) {
+        quill.addModule('toolbar', {
+          container: tb[0]
+        });
+      }
     };
-    return {
-      restrict: 'A',
-      link: linker
-    };
-  }])
-  .directive('quill', ['$parse',function ($parse) {
     return {
       restrict: 'E',
+      link: linker,
       templateUrl: 'scripts/entry/quill.html'
     };
   }])
   ;
-
-
-}());
