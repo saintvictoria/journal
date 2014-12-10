@@ -1,6 +1,6 @@
 (function (){
 
-  angular.module ('journal',['ngRoute','angularFileUpload', 'ngCookies'])
+  angular.module ('journal',['ngRoute','angularFileUpload', 'ngCookies','mm.foundation'])
   .constant('PARSE_HEADERS', {
     headers: {
       'X-Parse-Application-Id':'IWbER00hd2pgcj7vTr9JltVyZkxOIFlVlXvJILkw',
