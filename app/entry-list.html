@@ -3,7 +3,7 @@
   <br>
   <div><h3 >{{entry.Heading}}</h3></div>
   <div>{{entry.QuestionText}}</div>
-  <div>{{entry.Body}}<br>
+  <div><span ng-bind-html="entry.Body"></span><br>
     <span ng-show="entry.Picture.url">
       <img ng-src="{{entry.Picture.url}}" width="300" height="200">
     </span>
@@ -13,7 +13,7 @@
     <div style="margin-left: 20px"
     ng-repeat="addendum in addendums | filter:{Post: entry}">
       {{addendum.Date | date:"mediumDate"}}<br>
-      {{addendum.Body}}<br>
+      <span ng-bind-html="addendum.Body"></span><br>
       <span ng-show="addendum.Picture.url">
         <img ng-src="{{addendum.Picture.url}}" width="300" height="200">
       </span>
