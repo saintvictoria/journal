@@ -1,8 +1,8 @@
 angular.module('journal')
 .controller('EntryController',
-['$scope', '$location', 'EntryFactory','QuestionFactory', '$cookieStore',
-function($scope, $location,  EntryFactory, QuestionFactory, $cookieStore ){
-
+['$scope', '$location', 'EntryFactory','QuestionFactory', '$cookieStore', '$sce',
+function($scope, $location,  EntryFactory, QuestionFactory, $cookieStore,  $sce){
+/* global Date */
 
 //probaly need a welcome controller
 //for next two functions
@@ -32,7 +32,7 @@ function($scope, $location,  EntryFactory, QuestionFactory, $cookieStore ){
   $scope.do_over = function() {
     ranQuestion();
   };
-  
+
   $scope.submit = function() {
     var completeEntry = {
       'Date': {
@@ -55,7 +55,7 @@ function($scope, $location,  EntryFactory, QuestionFactory, $cookieStore ){
   EntryFactory.getAll().success(function(data) {
     $scope.entries = data.results;
     $scope.entries.forEach(function(entry) {
-      entry.appends = [];
+      entry.Body = $sce.trustAsHtml(entry.Body);
       entry.Date = Date.parse(entry.Date.iso);
     });
   });
@@ -66,13 +66,18 @@ function($scope, $location,  EntryFactory, QuestionFactory, $cookieStore ){
   EntryFactory.getAddendums().success(function(data) {
     $scope.addendums = data.results;
     $scope.addendums.forEach(function(addendum) {
+      addendum.Body = $sce.trustAsHtml(addendum.Body);
       addendum.Date = Date.parse(addendum.Date.iso);
     });
   });
   };
   fetchAddendums();
   $scope.append = function(entry){
-    entry.extra = true;
+    entry.extra = !entry.extra;
+  };
+  $scope.addendumsForEntry = function (entry) {
+    /* global _ */
+    return _.filter($scope.addendums, function (it) { return it.Post.objectId === entry.objectId; });
   };
 
   $scope.submitAppend = function(entry){

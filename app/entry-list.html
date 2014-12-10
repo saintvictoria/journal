@@ -3,7 +3,7 @@
   <br>
   <div><h3 >{{entry.Heading}}</h3></div>
   <div>{{entry.QuestionText}}</div>
-  <div>{{entry.Body}}<br>
+  <div><span ng-bind-html="entry.Body"></span><br>
     <span ng-show="entry.Picture.url">
       <img ng-src="{{entry.Picture.url}}" width="300" height="200">
     </span>
@@ -11,9 +11,9 @@
     <hr style="border: 1px dashed black;" />
 
     <div style="margin-left: 20px"
-    ng-repeat="addendum in addendums | filter:{Post: entry}">
+    ng-repeat="addendum in addendumsForEntry(entry)">
       {{addendum.Date | date:"mediumDate"}}<br>
-      {{addendum.Body}}<br>
+      <span ng-bind-html="addendum.Body"></span><br>
       <span ng-show="addendum.Picture.url">
         <img ng-src="{{addendum.Picture.url}}" width="300" height="200">
       </span>
@@ -23,7 +23,7 @@
 
     <button ng-click="append(entry)">append</button>
     <div ng-show="entry.extra">
-      <quill></quill><br>
+      <quill quill-model="entry.appendBody"></quill><br>
        Or you can enter a picture:
        <input type="file" accept="image/*" fileapi="entry.picture">
        <button ng-click="submitAppend(entry)">submit</button>
