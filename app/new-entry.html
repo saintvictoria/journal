@@ -7,10 +7,7 @@
   <div>{{question}}
     <img ng-click="do_over()" class="do-over-icon"
     src="images/do-over.png" height="25" width="25"></div>
-  <div><textarea ng-model="body" cols="61" rows="6"
-    placeholder="Please answer the question, or write something else."
-
-  ></textarea>
+  <div><quill var="body"></quill>
   <br>
 
   Or you can enter a picture:

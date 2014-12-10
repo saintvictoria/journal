@@ -72,7 +72,41 @@
       restrict: 'A',
       link: linker
     };
-  }]);
+  }])
+  .directive('quill2', ['$timeout',function ($timeout) {
+    var linker = function (scope, element, attrs) {
+      var quillId = 'quill'+Math.floor(Math.random()*1000);
+      //var formatGroup = ['bold','italic', 'underline'];
+
+      var editorDiv = angular.element('<div>' +
+      //'<div id="' + quillId + '-t"></div>' +
+      '<div id="' + quillId + '-e"></div>' +
+      '</div>');
+      element.append(editorDiv);
+      $timeout(function() {
+
+      var quill = new Quill(editorDiv[0] );//'#' + quillId + '-e');
+      var tb = element.parent().find('.ql-toolbar');
+      tb.attr('id',quillId + '-t');
+      quill.addModule('toolbar', {
+         //container: '#' + quillId +'-t'
+         container: tb[0]
+       });
+     },500);
+
+    };
+    return {
+      restrict: 'A',
+      link: linker
+    };
+  }])
+  .directive('quill', ['$parse',function ($parse) {
+    return {
+      restrict: 'E',
+      templateUrl: 'scripts/entry/quill.html'
+    };
+  }])
+  ;
 
 
 }());
