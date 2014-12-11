@@ -1,14 +1,14 @@
 <div ng-repeat="entry in entries | orderBy:'-Date'">
-  <div>{{ entry.Date | date:"mediumDate"}}</div>
+  <div class="date">{{ entry.Date | date:"mediumDate"}}</div>
   <br>
-  <div><h3 >{{entry.Heading}}</h3></div>
-  <div>{{entry.QuestionText}}</div>
+  <div class="heading"><h3 >{{entry.Heading}}</h3></div>
+  <div class="question">{{entry.QuestionText}}</div>
   <div><span ng-bind-html="entry.Body"></span><br>
     <span ng-show="entry.Picture.url">
       <img ng-src="{{entry.Picture.url}}" width="300" height="200">
     </span>
   </div>
-    <hr style="border: 1px dashed black;" />
+    <hr style="border: 1px dashed #0A3C68;" />
 
     <div style="margin-left: 20px"
     ng-repeat="addendum in addendumsForEntry(entry)">
@@ -18,12 +18,13 @@
         <img ng-src="{{addendum.Picture.url}}" width="300" height="200">
       </span>
 
-      <hr style="border: 1px dashed black;" />
+      <hr style="border: 1px dashed #0A3C68;" />
     </div>
 
     <button ng-click="append(entry)">append</button>
-    <div ng-show="entry.extra">
-      <quill quill-model="entry.appendBody"></quill><br>
+    <div class="quillEntry" ng-show="entry.extra">
+      <quill quill-model="entry.appendBody"></quill><br></div>
+      <div>
        Or you can enter a picture:
        <input type="file" accept="image/*" fileapi="entry.picture">
        <button ng-click="submitAppend(entry)">submit</button>

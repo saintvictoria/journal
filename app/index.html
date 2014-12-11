@@ -25,6 +25,15 @@
   <body ng-app="journal">
 
     <div class="hero-unit">
+      <div class="buttonheader">
+      <button class="butHeader" ng-click="newEntry()">New Entry</button>
+      <button class="butHeader" ng-click="entriesView()">Older Entries</button>
+      <button class="butHeader">Log Out</button>
+    </div>
+      <header>
+
+        <span class="headerText">My Journal</span>
+      </header>
 
       <span id="user"></span>
       <div ng-view></div>

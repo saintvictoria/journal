@@ -4,23 +4,76 @@
 
 // Custom Styles
 body {
-  background: #fafafa;
+  //background-image: url("../images/cloud-birds-wallpapers.png");
+  background: #BFE4FD;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #333;
+  color: #4A4A4A;
 }
 
 .hero-unit {
   margin: 50px auto 0 auto;
-  width: 600px;
-  font-size: 18px;
+  width: 800px;
+  //font-size: 18px;
   font-weight: 200;
   line-height: 30px;
-  background-color: #eee;
+  background-color: white;
   border-radius: 6px;
   padding: 60px;
-  h1 {
-    font-size: 60px;
-    line-height: 1;
-    letter-spacing: -1px;
+  .buttonheader {
+    text-align: center;
+    line-height: normal;
+    padding-top: 0px;
+    padding-bottom: 25px;
   }
+    header {
+    width: 680px;
+    height: 105px;
+    text-align: center;
+    background-image: url("../images/clouds-wallpaper.jpeg");
+    background-size: 800px 105px;
+      .headerText {
+      color: white;
+      font-size: 55px;
+      font-weight: bold;
+      text-align: center;
+      }
+    }
+  }
+
+
+.greeting {
+  font-size: 24px;
+  line-height: 30px;
+}
+
+button {
+  border-radius: 15px;
+  color: #FFF;
+  font-weight: light;
+  border: 1px solid #CCC;
+  padding: 5px 15px;
+  line-height: 20px;
+}
+.welcomebutton {
+  padding-top: 0px;
+  padding-bottom: 25px;
+  text-align: center;
+}
+.welcomeEnter {
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+.date {
+  color: #8E8E93;
+}
+.heading {
+  color: #0A3C68;
+}
+.question {
+  color: #24AE60;
+}
+.quillEntry {
+  border: 1px solid #0A3C68;
+
 }

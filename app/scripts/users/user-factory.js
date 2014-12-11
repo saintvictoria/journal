@@ -19,12 +19,10 @@
             }
 
             var login = function(user) {
-              console.log(user);
               var parameters = 'username='+user.username+'&password='+user.password;
               $http.get('https://api.parse.com/1/login/?'+parameters, PARSE_HEADERS)
               .success(function(data){
                  var user1 = $cookieStore.put('currentUser', data);
-                 console.log(user1);
                  $location.path('/welcome');
               });
 
