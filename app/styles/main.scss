@@ -5,7 +5,7 @@
 // Custom Styles
 body {
   //background-image: url("../images/cloud-birds-wallpapers.png");
-  background: #BFE4FD;
+  background-image: url("../images/hot-air-balloon-306007_640.png"); //#FBF4A3;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #4A4A4A;
 }
@@ -16,8 +16,8 @@ body {
   //font-size: 18px;
   font-weight: 200;
   line-height: 30px;
-  background-color: white;
-  border-radius: 6px;
+  //background-color: white;
+  border-radius: 10px;
   padding: 60px;
   .buttonheader {
     text-align: center;
@@ -26,20 +26,33 @@ body {
     padding-bottom: 25px;
   }
     header {
+    padding: 35px;
     width: 680px;
     height: 120px;
     text-align: center;
-    background-image: url("../images/clouds-wallpaper.jpeg");
+    //background-image: url("../images/clouds-wallpaper.jpeg");
     background-size: 800px 120px;
-      .headerText {
-      color: white;
+    border-radius: 10px;
+    .headerText {
+      color: black;
       font-size: 55px;
       font-weight: bold;
-      text-align: center;
-      }
+      //text-align: center;
+      margin-top: 70px;
+    }
     }
   }
 
+.entry {
+  background-color: white;
+  opacity:0.85;
+  border-radius: 15px;
+  //border-bottom: 2px solid blue;
+  margin-bottom: 40px;
+  padding-left: 20px;
+  padding-top:10px;
+  padding-bottom:20px;
+}
 
 .greeting {
   font-size: 24px;
@@ -50,10 +63,31 @@ button {
   border-radius: 15px;
   color: #FFF;
   font-weight: light;
-  border: 1px solid #CCC;
+  border: 1px solid #FFF;
   padding: 5px 15px;
   line-height: 20px;
 }
+.submit {
+  float: right;
+  background-color: green;
+
+}
+.newEntryButton {
+  background-color: green;
+}
+.entriesButton {
+  background-color: orange;
+}
+.logOutButton {
+  background-color: red;
+}
+.forgotButton {
+  background-color: red;
+}
+.registerButton {
+  background-color: orange;
+}
+
 .welcomebutton {
   padding-top: 0px;
   padding-bottom: 25px;
@@ -74,12 +108,17 @@ button {
   color: #24AE60;
 }
 .quillEntry {
-  border: 1px solid #0A3C68;
+  border-top: 1px solid #8E8E93;
+  border-left: 1px solid #8E8E93;
+  border-right: 1px solid #8E8E93;
+  border-radius: 10px;
 }
 .ql-toolbar {
-  background-color: lightgray;
+  background-color: #FBF4A3;
+  border-radius: 10px;
 }
 .ql-editor {
-  border:  2px solid black;
-  min-height: 175px;
+  border-top:  1px solid #8E8E93;
+  height: 200px;
+  border-radius: 10px;
 }
