@@ -4,7 +4,6 @@
 
 // Custom Styles
 body {
-  //background-image: url("../images/cloud-birds-wallpapers.png");
   background-image: url("../images/hot-air-balloon-306007_640.png"); //#FBF4A3;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #4A4A4A;
@@ -13,10 +12,8 @@ body {
 .hero-unit {
   margin: 50px auto 0 auto;
   width: 800px;
-  //font-size: 18px;
   font-weight: 200;
   line-height: 30px;
-  //background-color: white;
   border-radius: 10px;
   padding: 60px;
   .buttonheader {
@@ -37,7 +34,6 @@ body {
       color: black;
       font-size: 55px;
       font-weight: bold;
-      //text-align: center;
       margin-top: 70px;
     }
     }
@@ -47,8 +43,8 @@ body {
   background-color: white;
   opacity:0.85;
   border-radius: 15px;
-  //border-bottom: 2px solid blue;
   margin-bottom: 40px;
+  padding-right:20px;
   padding-left: 20px;
   padding-top:10px;
   padding-bottom:20px;
@@ -69,6 +65,7 @@ button {
 }
 .submit {
   float: right;
+  margin-right: 10px;
   background-color: green;
 
 }
@@ -114,11 +111,12 @@ button {
   border-radius: 10px;
 }
 .ql-toolbar {
-  background-color: #FBF4A3;
+  background-color: #93B4D7;
   border-radius: 10px;
 }
 .ql-editor {
   border-top:  1px solid #8E8E93;
   height: 200px;
   border-radius: 10px;
+  padding-left:10px;
 }
