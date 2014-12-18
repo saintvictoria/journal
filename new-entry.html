@@ -1,0 +1,22 @@
+
+<div class="entry">
+  <div class="greeting">Hi {{user.username}}</div>
+  <div><span class="date">Date</span> {{ date | date:'mediumDate' }}</div>
+  <div class="heading">Heading
+    <input type="text" ng-model="heading" size="50"
+    placeholder="This is the tl;dr..(optional)">
+    <button class="submit" ng-click="submit()">Submit</button><br></div>
+  <div class="question">{{question}}
+    <img ng-click="do_over()" class="do-over-icon"
+    src="images/do-over.png" height="25" width="25"></div>
+  <div class="quillEntry">
+    <quill quill-model="body"></quill>
+  <br>
+  </div>
+
+  <div>
+  Or you can enter a picture:
+  <input type="file" accept="image/*" fileapi="picture">
+  </div>
+
+</div>

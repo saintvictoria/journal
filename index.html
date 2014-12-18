@@ -1,0 +1,42 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+    <title>journal</title>
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <link rel="stylesheet" href="styles/vendor.css">
+
+    <link rel="stylesheet" href="styles/main.css">
+
+    <script src="scripts/vendor/modernizr.js"></script>
+  </head>
+  <body ng-app="journal">
+
+    <div class="hero-unit">
+      <div class="buttonheader" ng-controller="EntryController">
+      <button class="newEntryButton" ng-click="newEntry()">New Entry</button>
+      <button class="entriesButton" ng-click="entriesView()">Older Entries</button>
+      <button class="logOutButton">Log Out</button>
+    </div>
+      <header>
+
+        <span class="headerText">My Journal</span>
+      </header>
+
+      <span id="user"></span>
+      <div ng-view></div>
+
+
+
+
+    </div>
+
+    <script src="scripts/vendor.js"></script>
+
+
+        <script src="scripts/main.js"></script>
+</body>
+</html>

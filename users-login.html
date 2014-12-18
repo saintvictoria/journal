@@ -1,0 +1,12 @@
+
+<div>
+  <br />
+  <div class="welcomeEnter">
+    <input type="text" ng-model="user.username" placeholder="name" />
+    <input type="password" ng-model="user.password" placeholder="password"/><br />
+  </div>
+  <div class="welcomebutton">
+    <button class="submit"ng-click="login(user)">Login</button>
+    <button class="registerButton" ng-click="register()">New User</button>
+    <button class="forgotButton" ng-click="forgot()">Forgot Password</button>
+</div>
